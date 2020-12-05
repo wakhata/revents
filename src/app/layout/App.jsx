@@ -7,11 +7,14 @@ import EventDashboard from "../../features/events/eventDashboard/EventDashboard"
 import EventForm from "../../features/events/eventForm/EventForm";
 import EventDetailedPage from "../../features/events/eventDetailed/EventDetailedPage";
 import Sandbox from "../../features/sandbox/Sandbox";
+import ErrorCompnent from "../errors/ErrorComponent";
+import ModalManager from "../common/modals/ModalManager";
 
 export default function App() {
   const { key } = useLocation();
   return (
     <>
+      <ModalManager />
       <Route exact path="/" component={HomePage} />
       <Route
         path={"/(.+)"}
@@ -28,6 +31,7 @@ export default function App() {
                 component={EventForm}
                 key={key}
               />
+              <Route path="/error" component={ErrorCompnent} />
             </Container>
           </>
         )}
